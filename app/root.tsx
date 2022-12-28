@@ -11,6 +11,8 @@ import {
 
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 import { getUser } from "./session.server";
+import { Footer } from "./components/footer";
+import { Header } from "./components/header";
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
@@ -36,7 +38,12 @@ export default function App() {
         <Links />
       </head>
       <body >
-        <Outlet />
+        <div className="min-h-screen grid grid-rows-[auto_1fr_auto]">
+          <Header></Header>
+
+          <Outlet />
+          <Footer></Footer>
+        </div>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
