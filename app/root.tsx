@@ -30,12 +30,12 @@ export async function loader({ request }: LoaderArgs) {
 
 export default function App() {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" >
       <head>
         <Meta />
         <Links />
       </head>
-      <body className="h-full">
+      <body >
         <Outlet />
         <ScrollRestoration />
         <Scripts />
