@@ -21,49 +21,40 @@ export default function Index() {
       {/*  Create a tailwind blog for John Chynoweth email jwchynoweth@gmail */}
 
       {/* Create Header tag */}
-      <div>
-        <header className="bg-gray-800">
-          <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-bold text-white">
-              John Chynoweth
-            </h1>
-          </div>
-        </header>
-
-      </div>
-
+      <header className="bg-gray-800">
+        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl font-bold text-white">
+            John Chynoweth
+          </h1>
+           </div>
+      </header>
 
       {/* Create Main content */}
-      <div>
-        <main className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+      <main className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <p>Hello this is my setion of the web.  You can view previos posts here:  <Link to="/posts" className="text-xl text-blue-600 underline"> Blog Posts</Link>
+        </p>
+        {/* Show the latest post */}
+        <div className="border-4 border-dashed border-gray-200  rounded-lg ">
+          <h1 className="my-6 border-b-2 text-center text-3xl">
+            {post.title}
+          </h1>
+          <div dangerouslySetInnerHTML={{ __html: html }} />
+        </div>
 
-          {/* Show the latest post */}
-          <div className="border-4 border-dashed border-gray-200  rounded-lg ">
-            <h1 className="my-6 border-b-2 text-center text-3xl">
-              {post.title}
-            </h1>
-            <div dangerouslySetInnerHTML={{ __html: html }} />
-          </div>
-
-        </main>
-
-      </div>
+      </main>
 
       {/* Create the footer */}
-      <div>
-        <footer className="bg-gray-900">
-          <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            <div className="mt-10 flex items-center justify-center text-sm text-white">
-              <div className="ml-6">
-                <p className="text-base leading-6 text-gray-400">
-                  &copy; 2022 John Chynoweth. All rights reserved.
-                </p>
-              </div>
+      <footer className="bg-gray-900">
+        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+          <div className="mt-10 flex items-center justify-center text-sm text-white">
+            <div className="ml-6">
+              <p className="text-base leading-6 text-gray-400">
+                &copy; 2022 John Chynoweth. All rights reserved.
+              </p>
             </div>
           </div>
-        </footer>
-      </div>
-
+        </div>
+      </footer>
     </div>
   );
 }
