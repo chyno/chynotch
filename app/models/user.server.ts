@@ -34,29 +34,18 @@ export async function deleteUserByEmail(email: User["email"]) {
 
 export async function verifyLogin(
   email: User["email"],
-  password: Password["hash"]
+  
 ) {
-  const userWithPassword = await prisma.user.findUnique({
+  const userWithoutPassword = await prisma.user.findUnique({
     where: { email },
-    include: {
-      password: true,
-    },
+     
   });
 
-  if (!userWithPassword || !userWithPassword.password) {
+  if (!userWithoutPassword ) {
     return null;
   }
 
-  const isValid = await bcrypt.compare(
-    password,
-    userWithPassword.password.hash
-  );
-
-  if (!isValid) {
-    return null;
-  }
-
-  const { password: _password, ...userWithoutPassword } = userWithPassword;
-
+ 
+ 
   return userWithoutPassword;
 }
