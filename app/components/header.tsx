@@ -8,7 +8,7 @@ export function Header() {
             John Chynoweth
           </h1>
           <Link 
-           to="/" className="mr-9 mt-6 text-xl text-white underline absolute inset-y-0 right-0"> Home</Link>
+           to="/" className=" text-xl text-white underline absolute inset-y-3 right-4"> Home</Link>
         
            </div>
       </header>);
