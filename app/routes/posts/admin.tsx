@@ -45,21 +45,12 @@ export default function PostAdmin() {
             {posts.map((post: Post) => (
               <li key={post.slug}>
                 <Link
-                  to={post.slug}
+                  to={  post.slug}
                   className="text-blue-600 underline"
-                >
-                  <Form method="delete">
-                    <div className="flex my-3">
-
-                      <input type="text" name={post.slug} id={post.slug} />  {post.title}
-
-                      <button type="submit" className="bg-blue-600  text-white">Delete</button>
-
-                    </div>
-
-                  </Form>
+                > {post.title} 
                 </Link>
               </li>
+
             ))}
           </ul>
         </nav>
