@@ -1,18 +1,19 @@
 import type { Post } from "@prisma/client";
-import type { LoaderFunction } from "@remix-run/node";
+import type { ActionArgs, LoaderFunction } from "@remix-run/node";
 import { json, redirect } from "@remix-run/node";
 import {
+  Form,
   Link,
   Outlet,
   useLoaderData,
 } from "@remix-run/react";
 
-import { getPosts } from "~/models/post.server";
+import { deletePost, getPosts } from "~/models/post.server";
 import { getUser } from "~/session.server";
 
 
 export const loader: LoaderFunction = async ({ request }) => {
-  
+
   const user = await getUser(request);
   if (user?.email != 'jwchynoweth@gmail.com') {
     return redirect('/posts');
@@ -21,12 +22,22 @@ export const loader: LoaderFunction = async ({ request }) => {
   }
 };
 
+// Note the "action" export name, this will handle our form POST
+export const action = async ({ request }: ActionArgs) => {
+  const formData = await request.formData();
+  if (!formData.get("slug")) {
+    return json({ error: "Missing slug" }, { status: 400 })
+  };
+
+  await deletePost(formData.get("slug") as string);
+};
+
 export default function PostAdmin() {
   const { posts, user } = useLoaderData<typeof loader>();
   return (
     <div className="mx-auto max-w-4xl">
       <h1 className="my-6 mb-2 border-b-2 text-center text-3xl">
-        Blog Admin for {user ? user?.email: 'unknown'  }
+        Blog Admin for {user ? user?.email : 'unknown'}
       </h1>
       <div className="grid grid-cols-4 gap-6">
         <nav className="col-span-4 md:col-span-1">
@@ -37,7 +48,16 @@ export default function PostAdmin() {
                   to={post.slug}
                   className="text-blue-600 underline"
                 >
-                  {post.title}
+                  <Form method="delete">
+                    <div className="flex my-3">
+
+                      <input type="text" name={post.slug} id={post.slug} />  {post.title}
+
+                      <button type="submit" className="bg-blue-600  text-white">Delete</button>
+
+                    </div>
+
+                  </Form>
                 </Link>
               </li>
             ))}

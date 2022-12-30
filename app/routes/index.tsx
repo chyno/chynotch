@@ -18,7 +18,8 @@ export default function Index() {
   const { post, html } = useLoaderData<typeof loader>();
   return (
       <main >
-        <p>Hello this is my setion of the web.  You can view previos posts here:  <Link to="/posts" className="text-xl text-blue-600 underline"> Blog Posts</Link>
+       
+        <p className="text-2xl py-9">Hello this is my setion of the web.  You can view previos posts here:  <Link to="/posts" className="text-xl text-blue-600 underline"> Blog Posts</Link>
         </p>
         {/* Show the latest post */}
         <div className="border-4 border-dashed border-gray-200  rounded-lg ">
