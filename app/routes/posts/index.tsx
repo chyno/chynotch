@@ -11,7 +11,7 @@ export const loader = async () => {
 export default function Posts() {
   const { posts } = useLoaderData<typeof loader>();
   return (
-    <main>
+    <main className="m-12">
       <h1>Posts</h1>
       <ul>
         {posts.map((post) => (

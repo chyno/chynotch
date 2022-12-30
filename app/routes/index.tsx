@@ -17,7 +17,7 @@ export const loader = async ({ params }: LoaderArgs) => {
 export default function Index() {
   const { post, html } = useLoaderData<typeof loader>();
   return (
-      <main className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+      <main >
         <p>Hello this is my setion of the web.  You can view previos posts here:  <Link to="/posts" className="text-xl text-blue-600 underline"> Blog Posts</Link>
         </p>
         {/* Show the latest post */}

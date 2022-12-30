@@ -1,4 +1,6 @@
-import { json, LoaderFunction, redirect } from "@remix-run/node";
+import type { Post } from "@prisma/client";
+import type { LoaderFunction } from "@remix-run/node";
+import { json, redirect } from "@remix-run/node";
 import {
   Link,
   Outlet,
@@ -8,11 +10,10 @@ import {
 import { getPosts } from "~/models/post.server";
 import { getUser } from "~/session.server";
 
- 
 
 export const loader: LoaderFunction = async ({ request }) => {
+  
   const user = await getUser(request);
-
   if (user?.email != 'jwchynoweth@gmail.com') {
     return redirect('/posts');
   } else {
@@ -21,16 +22,16 @@ export const loader: LoaderFunction = async ({ request }) => {
 };
 
 export default function PostAdmin() {
-  const { posts } = useLoaderData<typeof loader>();
+  const { posts, user } = useLoaderData<typeof loader>();
   return (
     <div className="mx-auto max-w-4xl">
       <h1 className="my-6 mb-2 border-b-2 text-center text-3xl">
-        Blog Admin
+        Blog Admin for {user ? user?.email: 'unknown'  }
       </h1>
       <div className="grid grid-cols-4 gap-6">
         <nav className="col-span-4 md:col-span-1">
           <ul>
-            {posts.map((post) => (
+            {posts.map((post: Post) => (
               <li key={post.slug}>
                 <Link
                   to={post.slug}
