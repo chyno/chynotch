@@ -1,4 +1,4 @@
-import type { Password, User } from "@prisma/client";
+import type { User } from "@prisma/client";
 import bcrypt from "bcryptjs";
 
 import { prisma } from "~/db.server";
@@ -32,20 +32,14 @@ export async function deleteUserByEmail(email: User["email"]) {
   return prisma.user.delete({ where: { email } });
 }
 
-export async function verifyLogin(
-  email: User["email"],
-  
-) {
+export async function verifyLogin(email: User["email"]) {
   const userWithoutPassword = await prisma.user.findUnique({
     where: { email },
-     
   });
 
-  if (!userWithoutPassword ) {
+  if (!userWithoutPassword) {
     return null;
   }
 
- 
- 
   return userWithoutPassword;
 }

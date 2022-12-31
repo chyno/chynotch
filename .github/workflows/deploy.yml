@@ -79,7 +79,7 @@ jobs:
 
       - name: ⚡ Run vitest
         run: npm run test -- --coverage
-  
+
   build:
     name: 🐳 Build
     # only build/deploy main branch on pushes

@@ -20,7 +20,7 @@ export const links: LinksFunction = () => {
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
-  title: "Remix Notes",
+  title: "Chynoweth Blog",
   viewport: "width=device-width,initial-scale=1",
 });
 
@@ -32,20 +32,21 @@ export async function loader({ request }: LoaderArgs) {
 
 export default function App() {
   return (
-    <html lang="en" >
+    <html lang="en">
       <head>
         <Meta />
         <Links />
       </head>
-      <body >
-        <div className="min-h-screen grid grid-rows-[auto_1fr_auto]">
+      <body>
+        <div className="grid min-h-screen grid-rows-[auto_1fr_auto]">
           <Header></Header>
           <div className="lg:grid lg:grid-cols-[1fr_1600px_1fr]">
             <div className="bg-gray-100"></div>
 
-            <div className="mx-3"><Outlet /></div>
+            <div className="mx-3">
+              <Outlet />
+            </div>
             <div className="bg-gray-100"></div>
-
           </div>
 
           <Footer></Footer>

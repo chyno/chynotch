@@ -33,8 +33,7 @@ export async function action({ request }: ActionArgs) {
       { status: 400 }
     );
   }
- 
-  
+
   if (password.length < 8) {
     return json(
       { errors: { email: null, password: "Password is too short" } },
@@ -46,19 +45,24 @@ export async function action({ request }: ActionArgs) {
   const { USER_PASSWORD } = process.env;
   if (!USER_PASSWORD) {
     return json(
-      { errors: { email: null, password: "Password not set for this environment" } },
+      {
+        errors: {
+          email: null,
+          password: "Password not set for this environment",
+        },
+      },
       { status: 400 }
     );
   }
 
-   // Get password from .env file
-  
-   if (USER_PASSWORD !== password ) {
-     return json(
-       { errors: { email: null, password: "Password is not corect" } },
-       { status: 400 }
-     );
-   }
+  // Get password from .env file
+
+  if (USER_PASSWORD !== password) {
+    return json(
+      { errors: { email: null, password: "Password is not corect" } },
+      { status: 400 }
+    );
+  }
 
   const user = await verifyLogin(email);
 

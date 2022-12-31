@@ -18,7 +18,8 @@ export async function getLatestPost() {
   return post;
 }
 
-export async function createPost(post: Pick<Post, "slug" | "title" | "markdown">
+export async function createPost(
+  post: Pick<Post, "slug" | "title" | "markdown">
 ) {
   return prisma.post.create({ data: post });
 }

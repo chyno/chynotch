@@ -27,13 +27,15 @@ export default function PostSlug() {
   return (
     <main className="mx-auto max-w-4xl">
       <Form method="post">
-
         <input type="hidden" value={post.slug} name="slug" id="slug" />
-        <h1 className="my-6 border-b-2 text-center text-3xl">
-          {post.title}
-        </h1>
+        <h1 className="my-6 border-b-2 text-center text-3xl">{post.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: html }} />
-        <button type="submit" className="bg-blue-500 ml-4  text-white py-2 px-4 align-middle">Delete</button>
+        <button
+          type="submit"
+          className="ml-4 bg-blue-500  py-2 px-4 align-middle text-white"
+        >
+          Delete
+        </button>
       </Form>
     </main>
   );

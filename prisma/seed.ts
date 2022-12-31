@@ -13,7 +13,7 @@ async function seed() {
 
   const hashedPassword = await bcrypt.hash("will_not_use", 10);
 
-   await prisma.user.create({
+  await prisma.user.create({
     data: {
       email,
       password: {
@@ -23,8 +23,6 @@ async function seed() {
       },
     },
   });
-
-
 
   const posts = [
     {
@@ -62,7 +60,7 @@ async function seed() {
       `.trim(),
     },
   ];
-  
+
   for (const post of posts) {
     await prisma.post.upsert({
       where: { slug: post.slug },
