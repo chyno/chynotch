@@ -43,6 +43,7 @@ FROM base
 ENV DATABASE_URL=file:/data/sqlite.db
 ENV PORT="3000"
 ENV NODE_ENV="production"
+ENV SESSION_SECRET="3a2fc92a07e39d0f7fd1e9da30292f5b3c1e179209f9c2dd288a9e24a0fbbe1b"
 EXPOSE  3000
 # add shortcut for connecting to database CLI
 RUN echo "#!/bin/sh\nset -x\nsqlite3 \$DATABASE_URL" > /usr/local/bin/database-cli && chmod +x /usr/local/bin/database-cli

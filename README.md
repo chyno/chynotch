@@ -184,3 +184,5 @@ export PATH="$FLYCTL_INSTALL/bin:$PATH"
 fly status --all --app chynotech-a5d1-staging
 2023-01-01T00:20:39Z   [info]Error: Invariant failed
   2023-01-01T00:20:39Z   [info]    at invariant (/myapp/node_modules/tiny-invariant/dist/tiny-invari
+
+  SESSION_SECRET
