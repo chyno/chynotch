@@ -181,3 +181,4 @@ We use [Prettier](https://prettier.io/) for auto-formatting in this project. It'
 
 export FLYCTL_INSTALL="/home/chyno/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
+fly status --all --app chynotech-a5d1-staging
