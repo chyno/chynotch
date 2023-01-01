@@ -1,4 +1,4 @@
-app = "chynotech-a5d1"
+app = "chynotech-a5d1-staging"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = [ ]
