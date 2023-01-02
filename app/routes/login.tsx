@@ -41,23 +41,11 @@ export async function action({ request }: ActionArgs) {
     );
   }
 
-  // Get password from .env file
-  const { USER_PASSWORD } = process.env;
-  if (!USER_PASSWORD) {
-    return json(
-      {
-        errors: {
-          email: null,
-          password: "Password not set for this environment",
-        },
-      },
-      { status: 400 }
-    );
-  }
+
 
   // Get password from .env file
 
-  if (USER_PASSWORD !== password) {
+  if (password !== 'johniscool') {
     return json(
       { errors: { email: null, password: "Password is not corect" } },
       { status: 400 }
@@ -88,6 +76,7 @@ export const meta: MetaFunction = () => {
 };
 
 export default function LoginPage() {
+
   const [searchParams] = useSearchParams();
   const redirectTo = searchParams.get("redirectTo") || "/notes";
   const actionData = useActionData<typeof action>();
@@ -104,6 +93,7 @@ export default function LoginPage() {
 
   return (
     <div className="flex min-h-full flex-col justify-center">
+
       <div className="mx-auto w-full max-w-md px-8">
         <Form method="post" className="space-y-6">
           <div>
