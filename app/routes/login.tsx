@@ -56,7 +56,7 @@ export async function action({ request }: ActionArgs) {
 
   if (!user) {
     return json(
-      { errors: { email: "Invalid email or password", password: null } },
+      { errors: { email: "Can not find user", password: null } },
       { status: 400 }
     );
   }
