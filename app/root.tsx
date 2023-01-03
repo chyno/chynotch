@@ -40,10 +40,9 @@ export default function App() {
       <body>
         <div className="grid min-h-screen grid-rows-[auto_1fr_auto]">
           <Header></Header>
-          <div className="lg:grid lg:grid-cols-[1fr_1600px_1fr]">
+          <div className="lg:grid lg:grid-cols-[1fr_1700px_1fr]">
             <div className="bg-gray-100"></div>
-
-            <div className="mx-3">
+            <div>
               <Outlet />
             </div>
             <div className="bg-gray-100"></div>

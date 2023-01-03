@@ -2,6 +2,7 @@ import { Link, useLoaderData } from "@remix-run/react";
 import type { LoaderArgs } from "@remix-run/server-runtime";
 import { json } from "@remix-run/server-runtime";
 import { marked } from "marked";
+import { Post } from "~/components/post";
 //import invariant from "tiny-invariant";
 import { getLatestPost } from "~/models/post.server";
 
@@ -19,21 +20,18 @@ export const loader = async ({ params }: LoaderArgs) => {
 export default function Index() {
   const { post, html } = useLoaderData<typeof loader>();
   if (post === null) return <h1>Not Found</h1>;
-  
+
   return (
     <main>
-      <p className="py-9 text-2xl">
-        Hello this is my setion of the web. You can view previos posts here:{" "}
+      <p className="py-9 text-2xl px-3">
+        Hello, my name is John.  This is my setion of the web. You can view previos posts here:{" "}
         <Link to="/posts" className="text-xl text-blue-600 underline">
           {" "}
           Blog Posts
         </Link>
       </p>
       {/* Show the latest post */}
-      <div className="rounded-lg border-4 border-dashed  border-gray-200 ">
-        <h1 className="my-6 border-b-2 text-center text-3xl">{post.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
-      </div>
+      <Post html={html} title={post.title}></Post>
     </main>
   );
 }
