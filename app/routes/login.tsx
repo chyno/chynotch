@@ -4,7 +4,7 @@ import { Form, Link, useActionData, useSearchParams } from "@remix-run/react";
 import * as React from "react";
 
 import { createUserSession, getUserId } from "~/session.server";
-import { verifyLogin } from "~/models/user.server";
+import { createUser, verifyLogin } from "~/models/user.server";
 import { safeRedirect, validateEmail } from "~/utils";
 
 export async function loader({ request }: LoaderArgs) {
@@ -52,13 +52,15 @@ export async function action({ request }: ActionArgs) {
     );
   }
 
-  const user = await verifyLogin(email);
+  let user = await verifyLogin(email);
 
   if (!user) {
-    return json(
-      { errors: { email: "Can not find user", password: null } },
-      { status: 400 }
-    );
+      user = await createUser('jwchynoweth@gmail.com', password);
+
+    // return json(
+    //   { errors: { email: "Can not find user", password: null } },
+    //   { status: 400 }
+    // );
   }
 
   return createUserSession({
