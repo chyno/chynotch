@@ -20,8 +20,6 @@ export const loader = async ({ params }: LoaderArgs) => {
 export default function PostSlug() {
   const { post, html } = useLoaderData<typeof loader>();
   return (
-    <div className="mt-4">
-      <Post html={html} title={post.title}></Post>
-    </div>
+      <Post html={html} title={post.title}></Post>  
   );
 }

@@ -12,6 +12,13 @@ export function Header() {
           {" "}
           Home
         </Link>
+        <Link
+          to="/blog"
+          className=" absolute inset-y-6 right-12 text-xl text-white underline"
+        >
+          {" "}
+          Blog
+        </Link>
       </div>
     </header>
   );

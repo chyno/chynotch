@@ -14,6 +14,7 @@ export async function loader({ request }: LoaderArgs) {
 }
 
 export async function action({ request }: ActionArgs) {
+
   const formData = await request.formData();
   const email = formData.get("email");
   const password = formData.get("password");
@@ -55,7 +56,7 @@ export async function action({ request }: ActionArgs) {
   let user = await verifyLogin(email);
 
   if (!user) {
-      user = await createUser('jwchynoweth@gmail.com', password);
+    user = await createUser('jwchynoweth@gmail.com', password);
 
     // return json(
     //   { errors: { email: "Can not find user", password: null } },
@@ -80,7 +81,7 @@ export const meta: MetaFunction = () => {
 export default function LoginPage() {
 
   const [searchParams] = useSearchParams();
-  const redirectTo = searchParams.get("redirectTo") || "/notes";
+  const redirectTo = searchParams.get("redirectTo") || "/";
   const actionData = useActionData<typeof action>();
   const emailRef = React.useRef<HTMLInputElement>(null);
   const passwordRef = React.useRef<HTMLInputElement>(null);
