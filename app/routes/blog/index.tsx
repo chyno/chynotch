@@ -24,7 +24,7 @@ export default function Index() {
     <main>
       <p className="py-9 text-2xl px-3">
         Hello, my name is John.  This is my setion of the web. You can view previous posts here:{" "}
-        <Link to="/posts" className="text-xl text-blue-600 underline">
+        <Link to="blog/posts" className="text-xl text-blue-600 underline">
           {" "}
           Blog Posts
         </Link>
