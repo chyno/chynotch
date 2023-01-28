@@ -2,23 +2,26 @@ import { Link } from "@remix-run/react";
 
 export function Header() {
   return (
-    <header className="bg-gray-800">
-      <div className="flex max-w-7xl py-6 pl-12">
-        <h1 className="text-3xl font-bold text-white">John Chynoweth</h1>
-        <Link
-          to="/"
-          className=" absolute inset-y-6 right-12 text-xl text-white underline"
-        >
-          {" "}
-          Home
-        </Link>
-        <Link
-          to="/blog"
-          className=" absolute inset-y-6 right-12 text-xl text-white underline"
-        >
-          {" "}
-          Blog
-        </Link>
+
+    <header className="bg-gray-800 py-6">
+      <div className="px-11 flex justify-between items-center" >
+        <h1 className=" text-3xl font-bold text-white">John Chynoweth</h1>
+        <div>
+          <Link
+            to="/"
+            className="text-xl text-white underline"
+          >
+            {" "}
+            Home
+          </Link>
+          <Link
+            to="/blog"
+            className="text-xl text-white underline"
+          >
+            {" "}
+            Blog
+          </Link>
+        </div>
       </div>
     </header>
   );
