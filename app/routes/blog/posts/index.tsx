@@ -1,7 +1,6 @@
 import { json } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 
-
 import { getPosts } from "~/models/post.server";
 
 export const loader = async () => {
@@ -11,20 +10,20 @@ export const loader = async () => {
 export default function Posts() {
   const { posts } = useLoaderData<typeof loader>();
   return (
-    <main>
-      <h1>Posts</h1>
+    <div className="m-12">
+    
+      <h1 className="text-center text-3xl">Previous Posts</h1>
       <ul>
         {posts.map((post) => (
           <li key={post.slug}>
-            <Link
-              to={post.slug}
-              className="text-blue-600 underline"
-            >
+            <Link to={post.slug} className="text-blue-600 underline">
               {post.title}
             </Link>
+            {/* show post date format in mm/dd/yy format */}
+            <span className="text-gray-500 ml-2 pl-2">{post.createdAt}</span>
           </li>
         ))}
       </ul>
-    </main>
+    </div>
   );
 }

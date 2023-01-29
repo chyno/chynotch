@@ -4,7 +4,7 @@ import { Form, Link, useActionData, useSearchParams } from "@remix-run/react";
 import * as React from "react";
 
 import { createUserSession, getUserId } from "~/session.server";
-import { verifyLogin } from "~/models/user.server";
+import { createUser, verifyLogin } from "~/models/user.server";
 import { safeRedirect, validateEmail } from "~/utils";
 
 export async function loader({ request }: LoaderArgs) {
@@ -14,10 +14,11 @@ export async function loader({ request }: LoaderArgs) {
 }
 
 export async function action({ request }: ActionArgs) {
+
   const formData = await request.formData();
   const email = formData.get("email");
   const password = formData.get("password");
-  const redirectTo = safeRedirect(formData.get("redirectTo"), "/notes");
+  const redirectTo = safeRedirect(formData.get("redirectTo"), "/posts");
   const remember = formData.get("remember");
 
   if (!validateEmail(email)) {
@@ -41,13 +42,26 @@ export async function action({ request }: ActionArgs) {
     );
   }
 
-  const user = await verifyLogin(email, password);
 
-  if (!user) {
+
+  
+
+  if (password !== process.env.PASSWORD) {
     return json(
-      { errors: { email: "Invalid email or password", password: null } },
+      { errors: { email: null, password: "Password is not corect" } },
       { status: 400 }
     );
+  }
+
+  let user = await verifyLogin(email);
+
+  if (!user) {
+    user = await createUser('jwchynoweth@gmail.com', password);
+
+    // return json(
+    //   { errors: { email: "Can not find user", password: null } },
+    //   { status: 400 }
+    // );
   }
 
   return createUserSession({
@@ -65,8 +79,9 @@ export const meta: MetaFunction = () => {
 };
 
 export default function LoginPage() {
+
   const [searchParams] = useSearchParams();
-  const redirectTo = searchParams.get("redirectTo") || "/notes";
+  const redirectTo = searchParams.get("redirectTo") || "/";
   const actionData = useActionData<typeof action>();
   const emailRef = React.useRef<HTMLInputElement>(null);
   const passwordRef = React.useRef<HTMLInputElement>(null);
@@ -81,6 +96,7 @@ export default function LoginPage() {
 
   return (
     <div className="flex min-h-full flex-col justify-center">
+
       <div className="mx-auto w-full max-w-md px-8">
         <Form method="post" className="space-y-6">
           <div>

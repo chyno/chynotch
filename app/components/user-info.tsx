@@ -2,8 +2,8 @@ import { Link } from "@remix-run/react";
 import { useOptionalUser } from "~/utils";
 
 export function UserInfo() {
-    const user = useOptionalUser();
-    <div className="mx-auto mt-10 max-w-sm sm:flex sm:max-w-none sm:justify-center">
+  const user = useOptionalUser();
+  <div className="mx-auto mt-10 max-w-sm sm:flex sm:max-w-none sm:justify-center">
     {user ? (
       <Link
         to="/notes"
@@ -27,5 +27,5 @@ export function UserInfo() {
         </Link>
       </div>
     )}
-  </div>
+  </div>;
 }
