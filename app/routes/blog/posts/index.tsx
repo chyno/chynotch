@@ -10,14 +10,17 @@ export const loader = async () => {
 export default function Posts() {
   const { posts } = useLoaderData<typeof loader>();
   return (
-    <div className="m-12 text-2xl">
-      <h1>Posts</h1>
+    <div className="m-12">
+    
+      <h1 className="text-center text-3xl">Previous Posts</h1>
       <ul>
         {posts.map((post) => (
           <li key={post.slug}>
             <Link to={post.slug} className="text-blue-600 underline">
               {post.title}
             </Link>
+            {/* show post date format in mm/dd/yy format */}
+            <span className="text-gray-500 ml-2 pl-2">{post.createdAt}</span>
           </li>
         ))}
       </ul>

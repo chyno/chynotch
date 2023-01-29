@@ -18,17 +18,13 @@ export function Header() {
           <Link
             to="/"
             className="text-xl text-white underline"
-          >
-            {" "}
-            Home
+          > Home
           </Link>
+
           <Link
             to="/blog"
             className="text-xl text-white underline"
-          >
-            {" "}
-            Blog
-          </Link>
+          >Blog</Link>
         </div>
       </div>
     </header>
