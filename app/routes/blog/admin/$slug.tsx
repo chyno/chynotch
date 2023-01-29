@@ -20,7 +20,7 @@ export const loader = async ({ params }: LoaderArgs) => {
 export const action = async ({ request }: ActionArgs) => {
   const formData = await request.formData();
   await deletePost(formData.get("slug") as string);
-  return redirect(`/posts/admin`);
+  return redirect(`blog/posts/admin`);
 };
 export default function PostSlug() {
   const { post, html } = useLoaderData<typeof loader>();

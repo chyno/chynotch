@@ -25,8 +25,7 @@ export const action = async ({ request }: ActionArgs) => {
   }
 
   await createPost({ title, slug, markdown });
-
-  return redirect("/posts/admin");
+  return redirect("blog/posts/admin");
 };
 
 export default function NewPost() {

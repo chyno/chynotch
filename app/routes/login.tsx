@@ -44,9 +44,9 @@ export async function action({ request }: ActionArgs) {
 
 
 
-  // Get password from .env file
+  
 
-  if (password !== 'johniscool') {
+  if (password !== process.env.PASSWORD) {
     return json(
       { errors: { email: null, password: "Password is not corect" } },
       { status: 400 }
