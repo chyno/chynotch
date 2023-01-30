@@ -948,9 +948,10 @@ video {
 }
 
 code {
-  background-color: #340505;
+  background-color: #f5f5f5;
   padding: 0 5px;
   border-radius: 3px;
+  font-style: consolas, Monaco,Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
 .hover\:bg-yellow-50:hover {
