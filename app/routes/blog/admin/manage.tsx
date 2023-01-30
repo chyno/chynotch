@@ -12,7 +12,7 @@ export const loader: LoaderFunction = async ({ request }) => {
     return redirect("/");
   }
 
-  return json({ posts: await getPosts(), user });
+  return json({ posts: await getPosts() });
 };
 
 // Note the "action" export name, this will handle our form POST
