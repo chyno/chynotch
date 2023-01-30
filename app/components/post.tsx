@@ -1,11 +1,13 @@
 
+
 // Pass in cutom className to override default styles
 export function Post({ title, html, date }: { title: string; html: string, date: string }) {
 
   const createDate = new Date(date);
 
   return (
-    <div  >
+    <div >
+      
       <div className="flex p-6 border-b-2  justify-between items-center">
         <h1 className="text-center text-3xl">{title}</h1>
         {/* Show date in Format similary to January 31, 2022 */}
