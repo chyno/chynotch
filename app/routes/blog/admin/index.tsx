@@ -1,25 +1,24 @@
-import { ActionArgs, redirect } from "@remix-run/node";
+import type { ActionArgs } from "@remix-run/node";
+import { redirect } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import { getPosts } from "~/models/post.server";
-import { getSession,   USER_SESSION_KEY } from "~/session.server";
+import { getSession, USER_SESSION_KEY } from "~/session.server";
 
- 
-export  async function loader({ request }: ActionArgs)  {
+export async function loader({ request }: ActionArgs) {
   const session = await getSession(request);
-  if (!session || ! session.get(USER_SESSION_KEY)) {
+  if (!session || !session.get(USER_SESSION_KEY)) {
     return redirect("/");
   }
 
   return json({ posts: await getPosts() });
-
-};
+}
 
 export default function AdminIndex() {
   const { posts } = useLoaderData<typeof loader>();
 
   return (
-    <div className="space-y-3 space-y-3">
+    <div className="space-y-3">
       <div>
         <Link to="new" className="text-blue-600 underline">
           Create a New Post

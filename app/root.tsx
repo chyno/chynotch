@@ -9,7 +9,6 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
- 
 import { getUser } from "./session.server";
 import { Footer } from "./components/footer";
 import { Header } from "./components/header";
