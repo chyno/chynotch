@@ -5,7 +5,7 @@ export function Footer() {
         <div className=" flex items-center justify-center text-sm text-white">
           <div className="ml-6">
             <p className="text-base leading-6 text-gray-400">
-              &copy; 2022 John Chynoweth. All rights reserved.
+              &copy; 2022 Chynologic LLC. All rights reserved.
             </p>
           </div>
         </div>
