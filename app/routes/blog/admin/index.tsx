@@ -2,13 +2,9 @@ import { ActionArgs, redirect } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import { getPosts } from "~/models/post.server";
-import { getSession, logout, USER_SESSION_KEY } from "~/session.server";
+import { getSession,   USER_SESSION_KEY } from "~/session.server";
 
-export async function action({ request }: ActionArgs) {
-  //const session = await getSession(request);
-  //const isAdmin = location.pathname.includes("admin");
-  return logout(request);
-}
+ 
 export  async function loader({ request }: ActionArgs)  {
   const session = await getSession(request);
   if (!session || ! session.get(USER_SESSION_KEY)) {

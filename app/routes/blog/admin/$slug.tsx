@@ -5,6 +5,7 @@ import { Form, useLoaderData } from "@remix-run/react";
 import { marked } from "marked";
 import invariant from "tiny-invariant";
 import { deletePost, getPost } from "~/models/post.server";
+import { getSession, USER_SESSION_KEY } from "~/session.server";
 
 export const loader = async ({ params }: LoaderArgs) => {
   invariant(params.slug, `params.slug is required`);
@@ -18,6 +19,10 @@ export const loader = async ({ params }: LoaderArgs) => {
 
 // Note the "action" export name, this will handle our form POST
 export const action = async ({ request }: ActionArgs) => {
+  const session = await getSession(request);
+  if (!session || ! session.get(USER_SESSION_KEY)) {
+    return redirect("/");
+  }
   const formData = await request.formData();
   await deletePost(formData.get("slug") as string);
   return redirect(`/blog/admin`);
