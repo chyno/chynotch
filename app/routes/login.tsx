@@ -14,7 +14,6 @@ export async function loader({ request }: LoaderArgs) {
 }
 
 export async function action({ request }: ActionArgs) {
-
   const formData = await request.formData();
   const email = formData.get("email");
   const password = formData.get("password");
@@ -42,10 +41,6 @@ export async function action({ request }: ActionArgs) {
     );
   }
 
-
-
-  
-
   if (password !== process.env.PASSWORD) {
     return json(
       { errors: { email: null, password: "Password is not corect" } },
@@ -56,7 +51,7 @@ export async function action({ request }: ActionArgs) {
   let user = await verifyLogin(email);
 
   if (!user) {
-    user = await createUser('jwchynoweth@gmail.com', password);
+    user = await createUser("jwchynoweth@gmail.com", password);
 
     // return json(
     //   { errors: { email: "Can not find user", password: null } },
@@ -79,7 +74,6 @@ export const meta: MetaFunction = () => {
 };
 
 export default function LoginPage() {
-
   const [searchParams] = useSearchParams();
   const redirectTo = searchParams.get("redirectTo") || "/";
   const actionData = useActionData<typeof action>();
@@ -96,7 +90,6 @@ export default function LoginPage() {
 
   return (
     <div className="flex min-h-full flex-col justify-center">
-
       <div className="mx-auto w-full max-w-md px-8">
         <Form method="post" className="space-y-6">
           <div>

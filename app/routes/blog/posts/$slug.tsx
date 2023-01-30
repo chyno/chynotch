@@ -19,7 +19,5 @@ export const loader = async ({ params }: LoaderArgs) => {
 
 export default function PostSlug() {
   const { post, html } = useLoaderData<typeof loader>();
-  return (
-      <Post html={html} title={post.title} date={post.createdAt}></Post>  
-  );
+  return <Post html={html} title={post.title} date={post.createdAt}></Post>;
 }

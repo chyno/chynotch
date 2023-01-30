@@ -182,7 +182,7 @@ We use [Prettier](https://prettier.io/) for auto-formatting in this project. It'
 export FLYCTL_INSTALL="/home/chyno/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
 fly status --all --app chynotech-a5d1-staging
-2023-01-01T00:20:39Z   [info]Error: Invariant failed
-  2023-01-01T00:20:39Z   [info]    at invariant (/myapp/node_modules/tiny-invariant/dist/tiny-invari
+2023-01-01T00:20:39Z [info]Error: Invariant failed
+2023-01-01T00:20:39Z [info] at invariant (/myapp/node_modules/tiny-invariant/dist/tiny-invari
 
-  SESSION_SECRET
+SESSION_SECRET

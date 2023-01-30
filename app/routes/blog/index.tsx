@@ -22,10 +22,11 @@ export default function Index() {
 
   return (
     <main>
-      <p className="py-9 text-2xl px-3">
-        Hello, my name is John.  This is my setion of the web.{" "}
+      <p className="py-9 px-3 text-2xl">
+        Hello, my name is John. This is my setion of the web.{" "}
         <Link to="posts" className="text-xl text-blue-600 underline">
-          You can view previous posts</Link>
+          You can view previous posts
+        </Link>
       </p>
       {/* Show the latest post */}
       <Post html={html} title={post.title} date={post.createdAt}></Post>

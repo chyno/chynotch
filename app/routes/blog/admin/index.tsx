@@ -8,16 +8,14 @@ export const loader = async () => {
 
 export default function AdminIndex() {
   const { posts } = useLoaderData<typeof loader>();
-  
+
   return (
     <div className="space-y-3 space-y-3">
       <div>
-      <Link to="new" className="text-blue-600 underline">
+        <Link to="new" className="text-blue-600 underline">
           Create a New Post
         </Link>
       </div>
-        
-   
 
       <ul>
         {posts.map((post) => (
@@ -26,11 +24,10 @@ export default function AdminIndex() {
               {post.title}
             </Link>
             {/* show post date format in mm/dd/yy format */}
-            <span className="text-gray-500 ml-2 pl-2">{post.createdAt}</span>
+            <span className="ml-2 pl-2 text-gray-500">{post.createdAt}</span>
           </li>
         ))}
       </ul>
-
     </div>
   );
 }

@@ -11,7 +11,6 @@ export default function Posts() {
   const { posts } = useLoaderData<typeof loader>();
   return (
     <div className="m-12">
-    
       <h1 className="text-center text-3xl">Previous Posts</h1>
       <ul>
         {posts.map((post) => (
@@ -20,7 +19,7 @@ export default function Posts() {
               {post.title}
             </Link>
             {/* show post date format in mm/dd/yy format */}
-            <span className="text-gray-500 ml-2 pl-2">{post.createdAt}</span>
+            <span className="ml-2 pl-2 text-gray-500">{post.createdAt}</span>
           </li>
         ))}
       </ul>
