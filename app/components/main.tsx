@@ -15,6 +15,7 @@ export function Main() {
 
 
         <h2 className="text-2xl font-bold">Current Focus</h2>
+        
         <ol className="ml-2">
           <li>React JS</li>
           <li>Next JS</li>

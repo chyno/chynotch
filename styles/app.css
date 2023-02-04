@@ -9,3 +9,12 @@ code {
   font-style: consolas, Monaco, Lucida Console, Liberation Mono,
     DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
 }
+
+.arrow {
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.5rem;
+  transform: rotate(45deg);
+  border-left: 0.15rem solid currentColor;
+  border-bottom: 0.15rem solid currentColor;
+}
