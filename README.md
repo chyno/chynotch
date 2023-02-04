@@ -1,13 +1,3 @@
-# Remix Indie Stack
-
-![The Remix Indie Stack](https://repository-images.githubusercontent.com/465928257/a241fa49-bd4d-485a-a2a5-5cb8e4ee0abf)
-
-Learn more about [Remix Stacks](https://remix.run/stacks).
-
-```
-npx create-remix@latest --template remix-run/indie-stack
-```
-
 ## What's in the stack
 
 - [Fly app deployment](https://fly.io) with [Docker](https://www.docker.com/)
@@ -182,7 +172,13 @@ We use [Prettier](https://prettier.io/) for auto-formatting in this project. It'
 export FLYCTL_INSTALL="/home/chyno/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
 fly status --all --app chynotech-a5d1-staging
-2023-01-01T00:20:39Z   [info]Error: Invariant failed
-  2023-01-01T00:20:39Z   [info]    at invariant (/myapp/node_modules/tiny-invariant/dist/tiny-invari
+2023-01-01T00:20:39Z [info]Error: Invariant failed
+2023-01-01T00:20:39Z [info] at invariant (/myapp/node_modules/tiny-invariant/dist/tiny-invari
 
-  SESSION_SECRET
+SESSION_SECRET
+
+
+
+chyno-blog-staging.fly.dev
+chyno-blog.fly.dev
+consulting.chynologic.com

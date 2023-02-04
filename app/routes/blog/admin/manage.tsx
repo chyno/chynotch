@@ -4,15 +4,15 @@ import { json, redirect } from "@remix-run/node";
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
 
 import { deletePost, getPosts } from "~/models/post.server";
-import { getUser } from "~/session.server";
+import { getSession, USER_SESSION_KEY } from "~/session.server";
 
 export const loader: LoaderFunction = async ({ request }) => {
-  const user = await getUser(request);
-  if (user?.email != "jwchynoweth@gmail.com") {
-    return redirect("/posts");
-  } else {
-    return json({ posts: await getPosts(), user });
+  const session = await getSession(request);
+  if (!session || !session.get(USER_SESSION_KEY)) {
+    return redirect("/");
   }
+
+  return json({ posts: await getPosts() });
 };
 
 // Note the "action" export name, this will handle our form POST
