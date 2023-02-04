@@ -180,3 +180,5 @@ SESSION_SECRET
 
 
 chyno-blog-staging.fly.dev
+chyno-blog.fly.dev
+consulting.chynologic.com

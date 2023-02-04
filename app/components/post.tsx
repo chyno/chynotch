@@ -11,8 +11,8 @@ export function Post({
   const createDate = new Date(date);
 
   return (
-    <div>
-      <div className="flex items-center justify-between  border-b-2 p-6">
+    <div >
+      <div className="flex items-center justify-between">
         <h1 className="text-center text-3xl">{title}</h1>
         {/* Show date in Format similary to January 31, 2022 */}
         <p className=" text-center ">
@@ -25,7 +25,7 @@ export function Post({
       </div>
 
       <div
-        className="rounded-lg border-2 border-gray-500 p-6"
+        className="border-t-2    border-b-2  border-gray-500 p-4"
         dangerouslySetInnerHTML={{ __html: html }}
       />
     </div>
