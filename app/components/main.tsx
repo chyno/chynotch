@@ -4,8 +4,7 @@ export function Main() {
       <section>
         <h1 className="text-4xl font-bold">Overview</h1>
         <p >
-          Our goal is to boost your business with solid architecture principles and the newest tools.
-          With 20 years of experience, Chyno Logic is ready to help. Our mission is to help you deliver value to your customers in a flash and cut down your costs. Whether it's AI or the latest DevOps, we've got you covered.
+          This is my corner of the Web. My modest goal for now is to document my Journey of continuing to learn new web programming.  I hope this is hekpful to somone.
         </p>
 
       </section>
@@ -14,7 +13,7 @@ export function Main() {
 
 
 
-        <h2 className="text-2xl font-bold">Current Focus</h2>
+        <h2 className="font-bold">Current Focus</h2>
         
         <ol className="ml-2">
           <li>React JS</li>
@@ -25,18 +24,7 @@ export function Main() {
           <li>NService Bus</li>
         </ol>
       </section>
-      <section>
-        <h2 className="text-2xl font-bold">Previous Work</h2>
-        <ol className="ml-2">
-          <li>Angular</li>
-          <li>.NET MVC</li>
-          <li>SQL Server</li>
-          <li>Apache Kafka and RabbitMQ</li>
-        </ol>
-      </section>
-
-
-
+      
     </main>
   );
 }
